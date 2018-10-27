@@ -1,14 +1,14 @@
 # jquery.leadvids
 
-**What does Leadvids do?**
+## What does Leadvids do?
 
 Leadvids is a simple jQuery plugin that adds the ability to display a JavaScript rendered form to a user at a specific moment during video streaming. This feature is available in platforms such as Wistia, Brightcove, and Vimeo - but generally requires a specific plan to be purchased.
 
-**Dependencies**
+## Dependencies
 
 - jQuery
 
-**Example**
+## Example
 
 ```
 <html>
@@ -53,7 +53,7 @@ $('.myLeadvid').leadvids({
 </html>
 ```
 
-**What video providers are supported?**
+## What video providers are supported?
 
 At this moment, Leadvids supports the following video providers:
 
@@ -61,20 +61,28 @@ At this moment, Leadvids supports the following video providers:
 
 Additional providers will be added in the future. 
 
-**What form providers are supported?**
+## What form providers are supported?
 
 Leadvids supports the following embedded form providers:
 
 - HubSpot
 - Marketo
 
-**Browser & Device Support**
+## Browser & Device Support
+
+**Mobile**
 
 In an effort to provide the best user experience, Leadvids will not function when the viewport width is less than 768px. This is for 2 reasons:
 
 1. Certain mobile browsers (such as iOS) automatically play the video in fullscreen mode.
 2. The players would be too small to provide a usable interface.
 
-Desktop browser support varies depending on capabilities of each video provider API. See the links below for each providers API reference:
+**Tablet & Desktop**
+
+- IE 11+ 
+
+Support may vary depending on capabilities of each video and form provider.
+
+See the links below for each providers API reference:
 
 - Vimeo - https://github.com/vimeo/player.js#browser-support
