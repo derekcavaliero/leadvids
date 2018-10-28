@@ -53,13 +53,16 @@ $('.myLeadvid').leadvids({
 
 ## Data API
 
-Leadvids allows for option overrides through HTML5 data-attributes. All data attributes are namespaced with a `leadvids` key:
+Leadvids allows for option overrides through HTML5 data-attributes. All data attributes are namespaced with a `data-leadvids` key:
 
-- `form-id`
-- `freepass`
-- `threshold`
-- `threshold-unit`
+e.g:
+
+- `data-leadvids-form-id`
+- `data-leadvids-freepass`
+- `data-leadvids-threshold`
 - ...etc
+
+_Note: overiding the `freepassTotal` and `provider` options is current not supported._
 
 ## What video providers are supported?
 
