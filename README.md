@@ -8,6 +8,13 @@ Leadvids is a simple jQuery plugin that adds the ability to display a JavaScript
 
 - jQuery
 
+
+## IMPORTANT!
+
+Because this plugin relies on placing an overlay on top of the video player - it is highly recommended that you implement a wrapper that forces a specific aspect ratio. Leadvids does not add a wrapper around the embedded players. The reasoning for this is because the jQuery `.wrap()` function causes the iframe element to reload - which is bad for multiple reasons (namely performance). Therefore - use something like the Responsive Embed component in Bootstrap 3 (https://getbootstrap.com/docs/3.3/components/#responsive-embed).
+
+Failure to do this will result in strange and unpredictable behavior - you have been warned.
+
 ## Example
 
 ```
