@@ -14,9 +14,9 @@ Because this plugin relies on placing an overlay on top of the video player - it
 
 Failure to do this will result in strange and unpredictable behavior - you have been warned.
 
-## Example
+## Quick Example (using HubSpot)
 
-```
+```html
 <!-- HTML Markup -->
 <div class="embed-responsive embed-responsive-16by9">
   <iframe src="https://player.vimeo.com/video/xxxxxx" class="myLeadvid" allowfullscreen></iframe>
