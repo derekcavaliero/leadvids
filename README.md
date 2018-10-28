@@ -4,6 +4,8 @@
 
 Leadvids is a simple jQuery plugin that adds the ability to display a JavaScript rendered form to a user at a specific moment during video streaming. This feature is available in platforms such as Wistia, Brightcove, and Vimeo - but generally requires a specific plan to be purchased.
 
+![image](https://user-images.githubusercontent.com/5420084/47617877-883c2400-daa2-11e8-85b6-275343d5db6e.png)
+
 ## Dependencies
 
 - jQuery
