@@ -1,4 +1,4 @@
-# jquery.leadvids
+# Leverage Premium Video Content with jquery.leadvids
 
 ![image](https://user-images.githubusercontent.com/5420084/47617877-883c2400-daa2-11e8-85b6-275343d5db6e.png)
 
