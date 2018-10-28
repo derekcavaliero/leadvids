@@ -4,38 +4,35 @@
 
 Leadvids is a simple jQuery plugin that adds the ability to display a JavaScript rendered form to a user at a specific moment during video streaming. This feature is available in platforms such as Wistia, Brightcove, and Vimeo - but generally requires a specific plan to be purchased.
 
+![image](https://user-images.githubusercontent.com/5420084/47617877-883c2400-daa2-11e8-85b6-275343d5db6e.png)
+
 ## Dependencies
 
 - jQuery
-
+- Form Library (varies by provider)
 
 ### An Important Note On HTML Structure
 
-Because this plugin relies on placing an overlay on top of the video player - it is highly recommended that you implement a wrapper that forces a specific aspect ratio. Leadvids does not add a wrapper around the embedded players. The reasoning for this is because the jQuery `.wrap()` function causes the iframe element to reload - which is bad for multiple reasons (namely performance). Therefore - use something like the Responsive Embed component in Bootstrap 3 (https://getbootstrap.com/docs/3.3/components/#responsive-embed).
+Because this plugin relies on placing an overlay on top of the video player - it is highly recommended that you implement a wrapper that forces a specific aspect ratio. Leadvids does not add a wrapper around the embedded players. The reasoning for this is because the jQuery `.wrap()` function causes the iframe element to reload - which is bad for multiple reasons (namely performance). Therefore, use something such as the Responsive Embed component in Bootstrap 3 (https://getbootstrap.com/docs/3.3/components/#responsive-embed) to format your video embed code.
 
 Failure to do this will result in strange and unpredictable behavior - you have been warned.
 
-## Example
+## Quick Example (using HubSpot)
 
-```
-<html>
-<head>
-</head>
-<body>
-<iframe src="https://player.vimeo.com/video/xxxxxx" 
-        width="640" 
-        height="360" 
-        frameborder="0" 
-        allowfullscreen 
-        class="myLeadvid"></iframe>
+```html
+<!-- HTML Markup -->
+<div class="embed-responsive embed-responsive-16by9">
+  <iframe src="https://player.vimeo.com/video/xxxxxx" class="myLeadvid" allowfullscreen></iframe>
+</div>
       
+<!-- Dependencies -->
 <!-- jQuery -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-<!-- jquery.leadvids.js -->
-<script src="/path/to/jquery.leadvids.js"></script>
 <!-- HubSpot Forms Library -->
 <script src="//js.hsforms.net/forms/v2.js"></script>
 
+<!-- jquery.leadvids.js -->
+<script src="/path/to/jquery.leadvids.js"></script>
 <script>
 // Globally update the form provider defaults
 $.fn.leadvids.defaults = {
@@ -56,9 +53,17 @@ $('.myLeadvid').leadvids({
   thresholdUnit: '%'
 });
 </script>
-</body>
-</html>
 ```
+
+## Data API
+
+Leadvids allows for option overrides through HTML5 data-attributes. All data attributes are namespaced with a `leadvids` key:
+
+- `form-id`
+- `freepass`
+- `threshold`
+- `threshold-unit`
+- ...etc
 
 ## What video providers are supported?
 
