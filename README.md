@@ -8,7 +8,6 @@ Leadvids is a simple jQuery plugin that adds the ability to display a JavaScript
 
 - jQuery
 
-
 ### An Important Note On HTML Structure
 
 Because this plugin relies on placing an overlay on top of the video player - it is highly recommended that you implement a wrapper that forces a specific aspect ratio. Leadvids does not add a wrapper around the embedded players. The reasoning for this is because the jQuery `.wrap()` function causes the iframe element to reload - which is bad for multiple reasons (namely performance). Therefore - use something like the Responsive Embed component in Bootstrap 3 (https://getbootstrap.com/docs/3.3/components/#responsive-embed).
@@ -18,24 +17,19 @@ Failure to do this will result in strange and unpredictable behavior - you have 
 ## Example
 
 ```
-<html>
-<head>
-</head>
-<body>
-<iframe src="https://player.vimeo.com/video/xxxxxx" 
-        width="640" 
-        height="360" 
-        frameborder="0" 
-        allowfullscreen 
-        class="myLeadvid"></iframe>
+<!-- HTML Markup -->
+<div class="embed-responsive embed-responsive-16by9">
+  <iframe src="https://player.vimeo.com/video/xxxxxx" class="myLeadvid" allowfullscreen></iframe>
+</div>
       
+<!-- Dependencies -->
 <!-- jQuery -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-<!-- jquery.leadvids.js -->
-<script src="/path/to/jquery.leadvids.js"></script>
 <!-- HubSpot Forms Library -->
 <script src="//js.hsforms.net/forms/v2.js"></script>
 
+<!-- jquery.leadvids.js -->
+<script src="/path/to/jquery.leadvids.js"></script>
 <script>
 // Globally update the form provider defaults
 $.fn.leadvids.defaults = {
@@ -56,8 +50,6 @@ $('.myLeadvid').leadvids({
   thresholdUnit: '%'
 });
 </script>
-</body>
-</html>
 ```
 
 ## What video providers are supported?
