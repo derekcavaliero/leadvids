@@ -9,12 +9,6 @@
     var pluginName = 'leadvids',
         defaults = {
 
-            provider: {
-                type: '',
-                id: '',         // Portal ID, Marketo Account ID etc...
-                host: ''      // Used only for Marketo - becuase each account has its own unique script src.
-            },
-
             formId: '',
 
             freepass: false,
@@ -24,6 +18,12 @@
 
             overlayHeader: 'Want to continue watching?',
             overlayText: '',
+
+            provider: {
+                type: '',
+                id: '',         // Portal ID, Marketo Account ID etc...
+                host: ''      // Used only for Marketo - becuase each account has its own unique script src.
+            },
 
             submitButtonClass: '',
 
@@ -36,6 +36,9 @@
 
     function Leadvid( element, options ) {
 
+        this._name = pluginName;
+        this._defaults = defaults;
+
         this.element = $( element );
 
         // jQuery has an extend method that merges the
@@ -43,25 +46,9 @@
         // result in the first object. The first object
         // is generally empty because we don't want to alter
         // the default options for future instances of the plugin
-        this.options = $.extend( true, {}, defaults, $.fn[pluginName].defaults, options );
+        this.options = $.extend( true, {}, defaults, $.fn[pluginName].defaults, options, this.getDataAttrs() );
 
-        /*
-         * Options overrides via HTML5 data attributes.
-         */
-        if ( this.element.data('leadvid-form-id') )
-            this.options.formId = this.element.data('leadvid-form-id');
-
-        if ( this.element.data('leadvid-threshold') )
-            this.options.threshold = parseInt( this.element.data('leadvid-threshold') );
-
-        if ( this.element.data('leadvid-threshold-unit') )
-            this.options.thresholdUnit = this.element.data('leadvid-threshold-unit');
-
-        if ( this.element.data('leadvid-freepass') === false || this.element.data('leadvid-freepass') === true )
-            this.options.freepass = this.element.data('leadvid-freepass');
-
-        this._defaults = defaults;
-        this._name = pluginName;
+        console.log( this.options );
 
         this.init();
 
@@ -84,6 +71,37 @@
 
             if ( this._video.type )
                 this.loadPlayerApi();
+
+        },
+
+        lcFirst: function(string) {
+            return string.charAt(0).toLowerCase() + string.slice(1);
+        },
+
+        getDataAttrs: function() {
+
+            var data = this.element.data();
+            var returnedData = {};
+            var value, newKey;
+
+            var blockedAttrs = [
+                'provider',
+                'freepassLimit'
+            ];
+
+            for (var key in data) {
+
+                if ( !data.hasOwnProperty(key) || key.indexOf(this._name) !== 0 ) continue;
+
+                value = data[key];
+                newKey = this.lcFirst(key.replace(this._name, ''));
+
+                if ( this._defaults.hasOwnProperty(newKey) && blockedAttrs.indexOf(newKey) === -1 )
+                    returnedData[newKey] = value;
+
+            }
+
+            return returnedData;
 
         },
 
