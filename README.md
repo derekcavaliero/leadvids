@@ -55,6 +55,16 @@ $('.myLeadvid').leadvids({
 </script>
 ```
 
+## Data API
+
+Leadvids allows for option overrides through HTML5 data-attributes. All data attributes are namespaced with a `leadvids` key:
+
+- `form-id`
+- `freepass`
+- `threshold`
+- `threshold-unit`
+- ...etc
+
 ## What video providers are supported?
 
 At this moment, Leadvids supports the following video providers:
